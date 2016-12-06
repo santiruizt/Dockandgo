@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<ul>
+
+	<% @users.each do |a| %>
+
+		<li>
+			<a href="../profile">
+			<%= a.name %>
+			</a>
+		</li>
+
+	<% end %>
+
+</ul>
