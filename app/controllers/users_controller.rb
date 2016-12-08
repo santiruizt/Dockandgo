@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-
+    @docks = @user.docks
     render 'users/profile'
   end
 

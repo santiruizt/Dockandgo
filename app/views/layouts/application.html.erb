@@ -11,14 +11,20 @@
   <body>
     <div id="top_bar">
       <% if user_signed_in? %>
-      <p><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></p>
+      <p>
+        <%= link_to "Home", "/" %> |
+        <%= link_to "Profile", "/profile" %> |
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+      </p>
       <% else %>
       <p>
+        <%= link_to "Home", "/" %> |
         <%= link_to 'Sign_up', new_user_registration_path %> |
         <%= link_to 'Sign_in', new_user_session_path %>
       </p>
       <% end %>
     </div>
+    
 
     <%= yield %>
   </body>

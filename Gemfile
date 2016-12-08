@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'rspec-rails'
+gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -35,6 +36,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
 end
 
 group :development do

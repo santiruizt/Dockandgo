@@ -1,5 +1,20 @@
-<h2><%= @user.name %></h2>
+<h2><%= @user.name.capitalize %></h2>
 
 <p>
 <strong>Email:</strong> <%= @user.email %>
 </p>
+
+<h3>Your Docks</h3>
+
+<ul>
+	<% @docks.each do |dock| %>
+	<li>
+    <strong>Dock plate: <%= dock.dock_plate %><br></strong>
+    Harbor:             <%= dock.harbor_id %><br>
+		Price:              <%= dock.price %><br>
+		Size:               <%= dock.size %><br>
+		<%= link_to "Delete", dock_delete_path(@user), method: :delete, data: { confirm: "Are you sure?"} %>
+	</li>
+	<% end %>
+</ul>
+<%= link_to 'Add new dock', '/profile/docks/new' %>

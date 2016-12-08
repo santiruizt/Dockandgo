@@ -1,0 +1,17 @@
+<h1> New Dock </h1>
+
+<%= form_for @dock do |f| %>
+	<%= f.label :name %>
+	<%= f.select 'harbor_id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+
+	<%= f.label :dock_plate %>
+	<%= f.text_field :dock_plate%>
+
+	<%= f.label :size %>
+	<%= f.number_field :size %>
+
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+
+	<%= f.submit %>
+<% end %>
