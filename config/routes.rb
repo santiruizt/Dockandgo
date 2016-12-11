@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root to: 'users#profile'
 
   get '/users/index', to:'users#index'
-  post '/harbors', to: 'harbor#index', as: :harbors
+
+  get '/harbors', to: 'harbor#show', as: :harbors
+
   get '/profile/docks/new', to: 'docks#new'
   post '/profile/docks/', to: 'docks#create', as: :docks
   delete '/profile/docks/#{@dock.id}/delete', to: 'docks#destroy', as: :dock_delete
