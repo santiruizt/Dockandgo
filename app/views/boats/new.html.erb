@@ -1,0 +1,12 @@
+<h1> New Boat </h1>
+
+<%= form_for @boat do |f| %>
+
+	<%= f.label :boat_plate %>
+	<%= f.text_field :boat_plate%>
+
+	<%= f.label :size %>
+	<%= f.number_field :size %>
+
+	<%= f.submit %>
+<% end %>

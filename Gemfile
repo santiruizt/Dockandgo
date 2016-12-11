@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
+# gem 'materialize-sass'
 gem 'rspec-rails'
-gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -46,6 +47,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
 end
 
 gem 'rails_12factor', group: :production

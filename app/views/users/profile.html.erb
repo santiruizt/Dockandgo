@@ -13,8 +13,23 @@
     Harbor:             <%= dock.harbor_id %><br>
 		Price:              <%= dock.price %><br>
 		Size:               <%= dock.size %><br>
-		<%= link_to "Delete", dock_delete_path(@user), method: :delete, data: { confirm: "Are you sure?"} %>
+		<%= link_to "Delete", dock_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this dock?"} %>
 	</li>
 	<% end %>
 </ul>
 <%= link_to 'Add new dock', '/profile/docks/new' %>
+<br><br><br>
+
+
+<h3>Your Boats</h3>
+
+<ul>
+	<% @boats.each do |boat| %>
+	<li>
+    <strong>Boat plate: <%= boat.boat_plate %><br></strong>
+		Size:               <%= boat.size %><br>
+		<%= link_to "Delete", boat_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this boat?"} %>
+	</li>
+	<% end %>
+</ul>
+<%= link_to 'Add new boat', '/profile/boats/new' %>

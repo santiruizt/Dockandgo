@@ -12,9 +12,4 @@ RSpec.describe Harbor, type: :model do
     expect(harbor).not_to be_valid
   end
 
-  # it "is invalid without a beginning date" do
-  #   harbor.from = nil
-  #   expect(harbor).not_to be_valid
-  # end
-
 end

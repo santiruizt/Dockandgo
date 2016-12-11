@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h2>Welcome to Dock&Go</h2>
-    <div id = 'home_image'>
+<div class="search-harbor home">
 
-    </div>
+<%= form_for @harbor do |f| %>
 
-  </body>
-</html>
+  <%= f.label :name %>
+	<%= f.select 'id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
 
+	<%= f.submit 'Search'%>
+<% end %>
 
-<!-- <%= link_to "Sign up", "/users/sign_in" %> -->
+</div>

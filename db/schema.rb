@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20161207181907) do
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.datetime "from"
-    t.datetime "until"
+    t.datetime "rent_from"
+    t.datetime "rent_until"
     t.boolean  "availability"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Dockandgo</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Dockandgo</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body id="page-top">
 
-  <body>
-    <div id="top_bar">
-      <% if user_signed_in? %>
-      <p>
-        <%= link_to "Home", "/" %> |
-        <%= link_to "Profile", "/profile" %> |
-        <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
-      </p>
-      <% else %>
-      <p>
-        <%= link_to "Home", "/" %> |
-        <%= link_to 'Sign_up', new_user_registration_path %> |
-        <%= link_to 'Sign_in', new_user_session_path %>
-      </p>
-      <% end %>
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+        </button> -->
+        <a class="navbar-brand page-scroll" href="/">Dock&Go</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="page-scroll" href="#Home"><%= link_to "Home", "/" %></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#Profile"><%= link_to "Profile", "/profile" %></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#Sign out"><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></a>
+          </li>
+        </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="page-scroll" href="#Home"><%= link_to "Home", "/" %></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#Sign_up"><%= link_to 'Sign_up', new_user_registration_path %></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#Sign_in"><%= link_to 'Sign_in', new_user_session_path %></a>
+          </li>
+        </ul>
+        <% end %>
+      </div>
     </div>
-    
 
-    <%= yield %>
-  </body>
+  </nav>
+
+
+  <%= yield %>
+</body>
 </html>

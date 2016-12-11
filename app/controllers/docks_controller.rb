@@ -5,6 +5,11 @@ class DocksController < ApplicationController
     @dock = @user.docks.new
   end
 
+  # def index
+  #   @docks = Dock.where(id: != current_user.id)
+  #
+  # end
+
   def create
     @user = current_user
     @docks = @user.docks
