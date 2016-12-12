@@ -1,11 +1,34 @@
 <div class="search-harbor home">
 
-<%= form_for @harbor do |f| %>
+<% if user_signed_in? %>
 
-  <%= f.label :name %>
-	<%= f.select 'id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+  <%= form_tag harbor_boats_path, method: :post do %>
+    <div class="form-group">
+    <%= label_tag :select_harbor %>
+  	<%= select_tag 'harbor_id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }), :include_blank => true, class: "form-control" %>
+    </div>
 
-	<%= f.submit 'Search'%>
+    <div class="form-group">
+    <%= label_tag :select_boat %>
+  	<%= select_tag 'id', options_for_select(current_user.boats.collect {|u| [u.name, u.id] }), :include_blank => true, class: "form-control" %>
+    </div>
+
+  	<%= submit_tag 'Search', class: 'btn btn-primary' %>
+  <% end %>
+
+<% else %>
+
+  <%= form_tag harbor_boats_path, method: :post do %>
+
+    <%= label_tag :select_harbor %>
+  	<%= select_tag 'id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+
+    <%= label_tag(:size, "Size:") %>
+  	<%= number_field_tag(:size) %>
+
+  	<%= submit_tag 'Search', class: 'btn btn-primary'%>
+
+  <% end %>
+
 <% end %>
-
 </div>

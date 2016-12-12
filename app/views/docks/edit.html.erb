@@ -1,0 +1,19 @@
+<h2>You are editing the following dock: </h2>
+
+<h3><%= @dock.dock_plate %></h3>
+
+<%= form_for @dock, url: {action: "update"} do |f| %>
+	<%= f.label :name %>
+	<%= f.select 'harbor_id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+
+	<%= f.label :dock_plate %>
+	<%= f.text_field :dock_plate%>
+
+	<%= f.label :size %>
+	<%= f.number_field :size %>
+
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+
+	<%= f.submit %>
+<% end %>

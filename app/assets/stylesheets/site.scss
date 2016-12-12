@@ -1,11 +1,13 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  background-image: url("background.jpg");
-
-  background-repeat: no-repeat;
+html, body {
+  background-image: url("harbor4.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  overflow: hidden;
 }
 
 
@@ -16,5 +18,8 @@ body {
 }
 
 .search-harbor {
-  margin-top: 80px;
+  
+  text-align: center;
+  // background-color: #ffffff;
+  // opacity: 0.1;
 }

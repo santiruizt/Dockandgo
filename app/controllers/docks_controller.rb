@@ -5,10 +5,20 @@ class DocksController < ApplicationController
     @dock = @user.docks.new
   end
 
-  # def index
-  #   @docks = Dock.where(id: != current_user.id)
-  #
-  # end
+  def index
+
+    @user = current_user
+    # @harbor = Harbor.find_by(id: params[:harbor_id])
+    @boat = Boat.find_by(id: params[:id])
+
+    if user_signed_in?
+      @harbor = Harbor.find_by(id: params[:harbor_id])
+      @docks = @harbor.docks.where.not(user_id: current_user.id).where('size > ?', @boat.size).all
+    else
+      @harbor = Harbor.find_by(id: params[:id])
+      @docks = @harbor.docks.where('size > ?', params[:size]).all
+    end
+  end
 
   def create
     @user = current_user
@@ -19,6 +29,20 @@ class DocksController < ApplicationController
       redirect_to profile_path
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @user = current_user
+    @dock = @user.docks.find_by(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @dock = @user.docks.find_by(params[:id])
+
+    if @dock.update(dock_params)
+      redirect_to profile_path
     end
   end
 
@@ -33,7 +57,6 @@ class DocksController < ApplicationController
 
   def dock_params
     params.require(:dock).permit(:size, :price, :dock_plate, :harbor_id)
-
   end
 
 end

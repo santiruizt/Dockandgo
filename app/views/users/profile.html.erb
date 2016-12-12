@@ -1,3 +1,6 @@
+<div class="user-profile">
+
+
 <h2><%= @user.name.capitalize %></h2>
 
 <p>
@@ -13,6 +16,7 @@
     Harbor:             <%= dock.harbor_id %><br>
 		Price:              <%= dock.price %><br>
 		Size:               <%= dock.size %><br>
+		<%= link_to "Edit",  dock_edit_path %>
 		<%= link_to "Delete", dock_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this dock?"} %>
 	</li>
 	<% end %>
@@ -26,10 +30,14 @@
 <ul>
 	<% @boats.each do |boat| %>
 	<li>
-    <strong>Boat plate: <%= boat.boat_plate %><br></strong>
+    <strong>Name: <%= boat.name %></strong><br>
+		Boat plate: <%= boat.boat_plate %><br>
 		Size:               <%= boat.size %><br>
+		<%= link_to "Edit",  boat_edit_path %>
 		<%= link_to "Delete", boat_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this boat?"} %>
 	</li>
 	<% end %>
 </ul>
 <%= link_to 'Add new boat', '/profile/boats/new' %>
+
+</div>

@@ -1,18 +1,19 @@
-<!-- <h2><%=@user.name%></h2>
 
-<h3>Your Docks</h3>
+<h3>Puertos de <%= @harbor.name %></h3>
 
 <ul>
 
 	<% @docks.each do |dock| %>
 
-	<li>
-    - Harbor: <%= dock.harbor_id %>
-    - Dock plate: <%= dock.dock_plate %>
-		- Price: <%= dock.price %>
-		- Size: <%= dock.size %>
-	</li>
 
+	<li>
+		<strong>Dock plate: <%= dock.dock_plate %></strong><br>
+    - Size: <%= dock.size %><br>
+		- Price: <%= dock.price %><br>
+		
+	</li>
+	<br>
+	<br>
 	<% end %>
 
-</ul> -->
+</ul>

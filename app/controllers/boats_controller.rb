@@ -17,6 +17,20 @@ class BoatsController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @boat = @user.boats.find_by(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @boat = @user.boats.find_by(params[:id])
+
+    if @boat.update(boat_params)
+      redirect_to profile_path
+    end
+  end
+
   def destroy
     @user = current_user
     @boat = @user.boats.find_by(params[:id])
@@ -28,7 +42,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:size, :boat_plate)
+    params.require(:boat).permit(:name, :size, :boat_plate)
   end
 
 end

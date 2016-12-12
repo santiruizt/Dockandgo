@@ -1,0 +1,17 @@
+<h2>You are editing the following boat: </h2>
+
+<h3><%= @boat.name %></h3>
+
+<%= form_for @boat, url: {action: "update"} do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name%>
+
+	<%= f.label :boat_plate %>
+	<%= f.text_field :boat_plate%>
+
+	<%= f.label :size %>
+	<%= f.number_field :size %>
+
+	<%= f.submit %>
+<% end %>

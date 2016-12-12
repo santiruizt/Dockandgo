@@ -4,8 +4,10 @@ class HarborsController < ApplicationController
     @harbor = Harbor.all
   end
 
-  def search
-    @harbor = Harbor.new   #¿el harbor que he seleccioando en la home?
-    @docks = @harbor.docks
-  end
+  # def show
+  #   @harbor = Harbor.find_by(id: params[:id])
+  #   @docks = @harbor.docks
+  # end
+
+
 end

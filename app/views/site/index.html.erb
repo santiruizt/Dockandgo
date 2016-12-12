@@ -1,0 +1,15 @@
+
+<ul>
+
+	<% @docks.each do |dock| %>
+
+	<li>
+    - Harbor: <%= dock.harbor_id %>
+    - Dock plate: <%= dock.dock_plate %>
+		- Price: <%= dock.price %>
+		- Size: <%= dock.size %>
+	</li>
+
+	<% end %>
+
+</ul>

@@ -7,15 +7,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body id="page-top">
+<body>
 
-  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <nav id="mainNav" class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
+      <div class="navbar-header col-sm-3">
         <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button> -->
-        <a class="navbar-brand page-scroll" href="/">Dock&Go</a>
+        <a class="navbar-brand" href="/">Dock&Go</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
@@ -48,7 +48,8 @@
 
   </nav>
 
-
+<div class="content">
   <%= yield %>
+</div>
 </body>
 </html>
