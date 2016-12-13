@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = current_user
     @docks = @user.docks
     @boats = @user.boats
+    # @rentals = @user.docks.rentals
     render 'users/profile'
   end
 

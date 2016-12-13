@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/', to: 'site#home'
   post '/harbors/', to: 'docks#index', as: :harbor_boats
 
-  get '/profile', to:'users#profile'
+  get '/profile', to:'users#profile', as: :profile
   root to: 'users#profile'
 
   get '/users/index', to:'users#index'
@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/profile/docks/#{dock.id}/edit', to: 'docks#edit', as: :dock_edit
   patch '/profile/docks/#{dock.id}', to: 'docks#update'
   delete '/profile/docks/#{@dock.id}/delete', to: 'docks#destroy', as: :dock_delete
+
+  get '/profile/boats/:boat_id/docks/:dock_id/rentals/new', to: 'rentals#new', as: :rentals
+  post '/profile/boats/:boat_id/docks/:dock_id/rentals', to: 'rentals#create'
 
   get '/profile/boats/new', to: 'boats#new'
   post '/profile/boats/', to: 'boats#create', as: :boats

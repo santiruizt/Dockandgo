@@ -9,6 +9,10 @@
     </div>
 
     <div class="form-group">
+      <%= date_field_tag :review_date, 'data-behaviour' => 'datepicker', :default => Date.today %>
+    </div>
+
+    <div class="form-group">
     <%= label_tag :select_boat %>
   	<%= select_tag 'id', options_for_select(current_user.boats.collect {|u| [u.name, u.id] }), :include_blank => true, class: "form-control" %>
     </div>
@@ -19,15 +23,21 @@
 <% else %>
 
   <%= form_tag harbor_boats_path, method: :post do %>
+    <div class="form-group">
+      <%= label_tag :select_harbor %>
+      <%= select_tag 'id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+    </div>
 
-    <%= label_tag :select_harbor %>
-  	<%= select_tag 'id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }) %>
+    <div class="form-group">
+      <%= date_field_tag :review_date, 'data-behaviour' => 'datepicker', :default => Date.today %>
+    </div>
 
-    <%= label_tag(:size, "Size:") %>
-  	<%= number_field_tag(:size) %>
+    <div class="form-group">
+      <%= label_tag(:size, "Size:") %>
+      <%= number_field_tag(:size) %>
+    </div>
 
   	<%= submit_tag 'Search', class: 'btn btn-primary'%>
-
   <% end %>
 
 <% end %>

@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
+
+
 # gem 'materialize-sass'
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

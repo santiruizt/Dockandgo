@@ -1,16 +1,18 @@
 
 <h3>Puertos de <%= @harbor.name %></h3>
 
+<h4>Boat: <%= @boat.name %></h4>
+
 <ul>
 
 	<% @docks.each do |dock| %>
-
 
 	<li>
 		<strong>Dock plate: <%= dock.dock_plate %></strong><br>
     - Size: <%= dock.size %><br>
 		- Price: <%= dock.price %><br>
-		
+
+		<%= link_to "Rent",  rentals_path(@boat, dock) %>
 	</li>
 	<br>
 	<br>

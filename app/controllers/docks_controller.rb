@@ -6,7 +6,6 @@ class DocksController < ApplicationController
   end
 
   def index
-
     @user = current_user
     # @harbor = Harbor.find_by(id: params[:harbor_id])
     @boat = Boat.find_by(id: params[:id])
