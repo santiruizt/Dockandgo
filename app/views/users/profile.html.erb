@@ -15,10 +15,16 @@
     <strong>Dock plate: <%= dock.dock_plate %><br></strong>
     Harbor:             <%= dock.harbor_id %><br>
 		Price:              <%= dock.price %><br>
-		Size:               <%= dock.size %><br>
-		<%= link_to "Edit",  dock_edit_path %>
-		<%= link_to "Delete", dock_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this dock?"} %>
+		Size:               <%= dock.size %><br><br>
+
+		-Rent requests:  <%=dock.rentals.count%>
+	</tr><br>
+		<%= link_to "Received requests", dock_info_path(dock) %><br>
+		<%= link_to "Edit" , dock_edit_path(dock) %><br>
+		<%= link_to "Delete", dock_delete_path(dock), method: :delete,
+				 data: { confirm: "Are you sure you want to delete this dock?"} %>
 	</li>
+	<br>
 	<% end %>
 </ul>
 <%= link_to 'Add new dock', '/profile/docks/new' %>
@@ -27,18 +33,19 @@
 
 <h3>Your Boats</h3>
 
-<ul>
+<table class='profile-table'>
 	<% @boats.each do |boat| %>
-	<li>
-    <strong>Name: <%= boat.name %></strong><br>
-		Boat plate: <%= boat.boat_plate %><br>
-		Size:               <%= boat.size %><br>
-		<%= link_to "Edit",  boat_edit_path %>
-		<%= link_to "Delete", boat_delete_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this boat?"} %>
-	</li>
+		<tr><strong>Name: <%= boat.name %></strong></tr><br>
+		<tr>- Boat plate: <%= boat.boat_plate %></tr><br>
+		<tr>- Size:       <%= boat.size %></tr><br>
+		<tr class="rent-request-tr"><a id="rent-requests", href="/"> -Rent requests: <%= boat.rentals.count %></a></tr>
+		<br><br>
+		<%= link_to "Edit", boat_edit_path(boat) %>&nbsp
+		<%= link_to "Delete", boat_delete_path(boat) , method: :delete,
+			data: { confirm: "Are you sure you want to delete this boat?"} %>
+		<br><br>
 	<% end %>
-</ul>
+</table>
 <%= link_to 'Add new boat', '/profile/boats/new' %>
-
 </div>
 <br><br><br>

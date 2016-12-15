@@ -1,0 +1,12 @@
+<h2>Do you wish to accept this rental petition?</h2>
+
+<li>Boat: <%= rental.boat.name %> </li>
+<li>From:  <%= rental.rent_from %></li>
+<li>Until: <%= rental.rent_until %></li>
+
+<%= form_for @rental, url: {action: "update"} do |f| %>
+
+<%= f.label :availability %>
+<%= f.text_field :availability%>
+
+<% end %>

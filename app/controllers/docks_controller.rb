@@ -33,12 +33,12 @@ class DocksController < ApplicationController
 
   def edit
     @user = current_user
-    @dock = @user.docks.find_by(params[:id])
+    @dock = @user.docks.find(params[:id])
   end
 
   def update
     @user = current_user
-    @dock = @user.docks.find_by(params[:id])
+    @dock = @user.docks.find(params[:id])
 
     if @dock.update(dock_params)
       redirect_to profile_path
@@ -47,10 +47,21 @@ class DocksController < ApplicationController
 
   def destroy
     @user = current_user
-    @dock = @user.docks.find_by(params[:id])
+    @dock = @user.docks.find(params[:id])
     @dock.destroy
     redirect_to profile_path
   end
+
+  def show
+    @user = current_user
+    @docks = @user.docks
+    @dock = @docks.find(params[:id])
+    @harbor = Harbor.find_by_id(@dock.harbor_id)
+    @rentals = @dock.rentals
+    # @rental = @rentals.find(params[:id])
+
+  end
+
 
   private
 

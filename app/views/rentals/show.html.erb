@@ -1,0 +1,45 @@
+
+<h2><%= @dock.dock_plate %></h2>
+
+
+<table class='profile-table'>
+	<tr>Harbor: <%= @harbor.name %></tr><br>
+	<tr>Dock plate: <%= @dock.dock_plate %></tr><br>
+	<tr>Size:   <%= @dock.size %></tr><br>
+	<tr>Price:   <%= @dock.price %></tr><br>
+</table>
+
+<h3>Your rentals for this dock:</h3>
+
+<% if @rentals.where('rent_until > ?', Time.now).any? %>
+You have <%= @dock.rentals.count %> rentals for this dock!
+<ul>
+  <% @rentals.each do |rental| %>
+			<li>Boat: <%= rental.boat.name %> </li>
+      <li>From:  <%= rental.rent_from %></li>
+      <li>Until: <%= rental.rent_until %></li>
+			<% if rental.availability == nil %>
+				<li>Availability:
+					<%= link_to "Accept/Deny Rental", rental_edit_path(@rentals),
+					 class: "btn btn-primary" %>
+			<% end %>
+			<%= rental.availability %>
+  <% end %>
+</ul>
+<% else %>
+  No rentals for this dock
+	<br><br>
+	<% if @rentals.where('rent_until < ?', Time.now).any? %>
+		<strong>Your past rentals:</strong>
+		<br>
+		<ul>
+		  <% @rentals.each do |rental| %>
+				<li>Boat: <%= rental.boat.name %> </li>
+		    <li>From:  <%= rental.rent_from %></li>
+		    <li>Until: <%= rental.rent_until %></li>
+				<li>Availability:
+		  <% end %>
+		</ul>
+	<% end %>
+<% end %>
+<br><br><br>

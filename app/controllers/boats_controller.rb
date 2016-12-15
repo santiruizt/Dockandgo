@@ -19,12 +19,12 @@ class BoatsController < ApplicationController
 
   def edit
     @user = current_user
-    @boat = @user.boats.find_by(params[:id])
+    @boat = @user.boats.find(params[:id])
   end
 
   def update
     @user = current_user
-    @boat = @user.boats.find_by(params[:id])
+    @boat = @user.boats.find(params[:id])
 
     if @boat.update(boat_params)
       redirect_to profile_path
@@ -33,7 +33,7 @@ class BoatsController < ApplicationController
 
   def destroy
     @user = current_user
-    @boat = @user.boats.find_by(params[:id])
+    @boat = @user.boats.find(params[:id])
     @boat.destroy
     redirect_to profile_path
   end

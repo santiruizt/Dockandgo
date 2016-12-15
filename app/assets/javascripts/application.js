@@ -21,5 +21,12 @@
 //= require_tree .
 
 $(document).on ('turbolinks:load', function() {
- $('.datetimepicker').datetimepicker({})
+ $('.input-group date').datetimepicker({
+   pickTime: false
+ });
+})
+
+
+$("tr[data-link]").click(function() {
+  window.location = $(this).data("link")
 })

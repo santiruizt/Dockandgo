@@ -8,7 +8,7 @@ class RentalsController < ApplicationController
   def create
     @boat = Boat.find_by(id: params[:boat_id])
     @dock = Dock.find_by(id: params[:dock_id])
-    # @rental = Rental.new(rental_params, dock: @dock, boat: @boat)
+
     @rental = @boat.rentals.new(rental_params)
 
     if @rental.save
@@ -18,6 +18,34 @@ class RentalsController < ApplicationController
     end
   end
 
+  def show
+
+    @boat = Boat.find_by(id: params[:id])
+    @dock = Dock.find_by(id: params[:id])
+
+    @harbor = Harbor.find_by_id(@dock.harbor_id)
+    @rentals = @dock.rentals
+  end
+
+  def availability
+    @rental = Rental.find(params[:id])
+    @boat = Boat.find_by(id: params[:id])
+    @dock = Dock.find(params[:id])
+    @rental.update_attributes(availability: true)
+    redirect_to dock_info(availability: false)
+  end
+
+  def edit
+    @rental = Rental.find(params[:id])
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+
+    if @rental.update(rental_params)
+      redirect to profile_path
+    end
+  end
 
   private
 

@@ -6,3 +6,15 @@
 .user-profile {
   background-color: #e6e6e6;
 }
+
+.profile-table .rent-request-tr:hover{
+   cursor: pointer;
+   background: red;
+}
+#rent-requests {
+  color: #4d4dff;
+
+}
+#rent-requests:hover {
+  color: #0000ff;
+}
