@@ -58,6 +58,7 @@ class DocksController < ApplicationController
     @dock = @docks.find(params[:id])
     @harbor = Harbor.find_by_id(@dock.harbor_id)
     @rentals = @dock.rentals
+
     # @rental = @rentals.find(params[:id])
 
   end

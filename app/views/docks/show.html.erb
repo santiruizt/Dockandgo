@@ -21,9 +21,14 @@ You have <%= @dock.rentals.count %> rentals for this dock!
       <li>Until: <%= rental.rent_until %></li>
 			<% if rental.availability == nil %>
 				<li>Availability:
-
-					<%= link_to "Accept/Deny Rental", rental_info_path(@rentals, rental.boat_id),
-					 class: "btn btn-primary" %>
+					<%= simple_form_for rental, :url =>
+ 						url_for(:action => "update", :id => rental) do |f| %>
+					<%= f.input :availability,
+            :as => :select,
+            :collection => [['Deny',false],['Accept',true]],
+            :include_blank => true,
+            :label => "Availability" %>
+					<% end %>
 				</li>
 			<% end %>
 			<%= rental.availability %>
