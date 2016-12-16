@@ -21,7 +21,6 @@ class RentalsController < ApplicationController
   def show
     @boat = Boat.find_by(id: params[:boat_id])
     @dock = Dock.find_by(id: params[:id])
-    # binding.pry
     @harbor = Harbor.find_by_id(@dock.harbor_id)
     @rentals = @dock.rentals
   end
@@ -39,6 +38,7 @@ class RentalsController < ApplicationController
   end
 
   def update
+    
     @rental = Rental.find(params[:id])
 
     if @rental.update(rental_params)

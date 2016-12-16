@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post '/profile/boats/:boat_id/docks/:dock_id/rentals', to: 'rentals#create', as: :rentals_create
   get '/profile/boats/:boat_id/docks/:dock_id/rentals/', to: 'rentals#show', as: :rental_info
   get '/profile/boats/:boat_id/docks/:dock_id/rentals/:id/edit', to: 'rentals#edit', as: :rental_edit
-  patch '/profile/boats/:boat_id/docks/:dock_id/rentals/:id', to: 'rentals#update'
+  patch '/profile/boats/:boat_id/docks/:dock_id/rentals/:id', to: 'rentals#update', as: :rental_update
 
   get '/profile/boats/:boat_id/docks/:dock_id/rentals/:id/availability',to: 'rentals#availability', as: :availability_rentals
   put '/profile/boats/:boat_id/docks/:dock_id/rentals/:id/availability',to: 'rentals#availability'

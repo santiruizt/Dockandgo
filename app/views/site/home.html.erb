@@ -7,11 +7,7 @@
     <%= label_tag :select_harbor %>
   	<%= select_tag 'harbor_id', options_for_select(Harbor.all.collect {|u| [u.name, u.id] }), :include_blank => true, class: "form-control" %>
     </div>
-
-    <div class="form-group">
-      <%= date_field_tag :review_date, 'data-behaviour' => 'datepicker', :default => Date.today %>
-    </div>
-
+    
     <div class="form-group">
     <%= label_tag :select_boat %>
   	<%= select_tag 'id', options_for_select(current_user.boats.collect {|u| [u.name, u.id] }), :include_blank => true, class: "form-control" %>
