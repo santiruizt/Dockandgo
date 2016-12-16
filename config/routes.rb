@@ -4,13 +4,6 @@ Rails.application.routes.draw do
   get '/', to: 'site#home'
   post '/harbors/', to: 'docks#index', as: :harbor_boats
 
-  # resources :users, only: [:show] do
-  #   resources :docks, only: [:new, :create, :edit, :update, :destroy, :show]
-  #   resources :boats, only: [:new, :create, :edit, :update, :destroy]
-  # end
-
-
-
   get '/profile', to:'users#profile', as: :profile
 
   get '/users/index', to:'users#index'
