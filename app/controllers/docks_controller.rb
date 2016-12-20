@@ -1,4 +1,6 @@
 class DocksController < ApplicationController
+skip_before_action :authenticate_user!, only: :index
+
   def new
     @user = current_user
     @harbor = Harbor.all
@@ -7,7 +9,6 @@ class DocksController < ApplicationController
 
   def index
     @user = current_user
-    # @harbor = Harbor.find_by(id: params[:harbor_id])
     @boat = Boat.find_by(id: params[:id])
 
     if user_signed_in?

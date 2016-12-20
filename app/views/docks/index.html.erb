@@ -1,21 +1,34 @@
-
-<h3>Puertos de <%= @harbor.name %></h3>
-
+<h3>Docks at <%= @harbor.name %></h3>
+<br>
+<% if user_signed_in? %>
 <h4>Boat: <%= @boat.name %></h4>
+<br>
+	<ul>
+		<% @docks.each do |dock| %>
+		<li>
+			<strong>Dock plate: <%= dock.dock_plate %></strong><br>
+	    - Size: <%= dock.size %><br>
+			- Price: <%= dock.price %><br>
 
-<ul>
+			<%= link_to "RENT",  rentals_path(@boat, dock) %>
+		</li>
+		<br>
+		<br>
+		<% end %>
+	</ul>
 
-	<% @docks.each do |dock| %>
+<% else %>
+	<ul>
+		<% @docks.each do |dock| %>
+		<li>
+	    <strong>Dock plate: <%= dock.dock_plate %></strong><br>
+			- Price: <%= dock.price %><br>
+			- Size: <%= dock.size %><br>
 
-	<li>
-		<strong>Dock plate: <%= dock.dock_plate %></strong><br>
-    - Size: <%= dock.size %><br>
-		- Price: <%= dock.price %><br>
+			<%= link_to "RENT",  new_user_session_path %>
+		</li>
+		<br><br>
+		<% end %>
+	</ul>
 
-		<%= link_to "RENT",  rentals_path(@boat, dock) %>
-	</li>
-	<br>
-	<br>
-	<% end %>
-
-</ul>
+<% end %>
