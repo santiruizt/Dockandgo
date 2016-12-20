@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   get '/users/index', to:'users#index'
 
-  post '/harbors', to: 'site#show', as: :harbors
-  get '/docks', to: 'docks#index'
+  # post '/harbors', to: 'site#show', as: :harbors
+  # get '/docks', to: 'docks#index'
 
   get '/profile/docks/new', to: 'docks#new'
-  post '/profile/docks/', to: 'docks#create', as: :docks_create
+  post '/profile/docks/', to: 'docks#create', as: :docks
   get '/profile/docks/:id/edit', to: 'docks#edit', as: :dock_edit
   patch '/profile/docks/:id', to: 'docks#update'
   delete '/profile/docks/:id/delete', to: 'docks#destroy', as: :dock_delete

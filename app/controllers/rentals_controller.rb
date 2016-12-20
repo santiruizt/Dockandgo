@@ -38,7 +38,6 @@ class RentalsController < ApplicationController
   end
 
   def update
-    
     @rental = Rental.find(params[:id])
 
     if @rental.update(rental_params)
