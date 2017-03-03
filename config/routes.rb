@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get '/profile/boats/:boat_id/docks/:dock_id/rentals/:id/availability',to: 'rentals#availability', as: :availability_rentals
   put '/profile/boats/:boat_id/docks/:dock_id/rentals/:id/availability',to: 'rentals#availability'
 
-
   get '/profile/boats/new', to: 'boats#new'
   post '/profile/boats/', to: 'boats#create', as: :boats
   get '/profile/boats/:id/edit', to: 'boats#edit', as: :boat_edit

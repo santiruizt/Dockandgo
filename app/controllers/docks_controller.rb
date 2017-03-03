@@ -59,9 +59,7 @@ skip_before_action :authenticate_user!, only: :index
     @dock = @docks.find(params[:id])
     @harbor = Harbor.find_by_id(@dock.harbor_id)
     @rentals = @dock.rentals
-
   end
-
 
   private
 

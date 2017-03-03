@@ -1,4 +1,3 @@
-
 <h2><%= @dock.dock_plate %></h2>
 
 <table class='profile-table'>
@@ -19,7 +18,6 @@ You have <%= @dock.rentals.count %> rentals for this dock!
       <li>From:  <%= rental.rent_from %></li>
       <li>Until: <%= rental.rent_until %></li>
 			<% if rental.availability == nil %>
-				<li>Availability:
 					<%= simple_form_for rental, :url => rental_update_path(rental, @dock) do |f| %>
 					<%= f.input :availability,
             :as => :select,
@@ -28,25 +26,26 @@ You have <%= @dock.rentals.count %> rentals for this dock!
             :label => "Availability" %>
 					<%= f.submit %>
 					<% end %>
-				</li>
 			<% end %>
 			<%= rental.availability %>
   <% end %>
 </ul>
 <% else %>
-  No rentals for this dock
+  No rentals for this dock happening now or in the future.
 	<br><br>
-	<% if @rentals.where('rent_until < ?', Time.now).any? %>
-		<strong>Your past rentals:</strong>
-		<br>
-		<ul>
-		  <% @rentals.each do |rental| %>
-				<li>Boat: <%= rental.boat.name %> </li>
-		    <li>From:  <%= rental.rent_from %></li>
-		    <li>Until: <%= rental.rent_until %></li>
+<% end %>
 
-		  <% end %>
-		</ul>
-	<% end %>
+<% if @rentals.where('rent_until < ?', Time.now).any? %>
+	<strong>Your past rentals:</strong>
+	<br><br>
+	<ul>
+	  <% @rentals.each do |rental| %>
+			<li><strong>Boat: <%= rental.boat.name %></strong><br>
+			  -From:  <%= rental.rent_from %><br>
+			  -Until: <%= rental.rent_until %><br>
+			</li>
+			<br>
+	  <% end %>
+	</ul>
 <% end %>
 <br><br><br>

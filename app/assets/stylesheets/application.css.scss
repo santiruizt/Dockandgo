@@ -51,11 +51,21 @@ body {
   overflow: scroll;
 }
 
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
 .content {
   margin-left: 5%;
   margin-right: 5%;
-
   opacity: 0.97;
+  height: 80vh;
 
 }
 .text-box{
